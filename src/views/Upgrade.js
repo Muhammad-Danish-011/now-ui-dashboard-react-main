@@ -27,7 +27,7 @@ function Upgrade() {
               <CardHeader>
                 <CardTitle>Xloop</CardTitle>
                 <p className="category">
-                  Welcome to Xloop
+                  'Welcome to Xloop'
                 </p>
                 <i className="fa-solid fa-infinity fa-flip fa-2xs"></i>
               </CardHeader>

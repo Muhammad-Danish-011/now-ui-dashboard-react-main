@@ -1,7 +1,4 @@
-
-import React from "react";
-
-// reactstrap components
+import React, { useState, useEffect } from "react";
 import {
   Card,
   CardBody,
@@ -11,13 +8,26 @@ import {
   Row,
   Col,
 } from "reactstrap";
-
-// core components
 import PanelHeader from "components/PanelHeader/PanelHeader.js";
 
-import { thead, tbody } from "variables/general";
-
 function RegularTables() {
+  const [tableData, setTableData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:8081/UserInformation/all");
+        const data = await response.json();
+        setTableData(data);
+        console.log(data, "====");
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <PanelHeader size="sm" />
@@ -26,81 +36,42 @@ function RegularTables() {
           <Col xs={12}>
             <Card>
               <CardHeader>
-                <CardTitle tag="h4">Simple Table</CardTitle>
+                <CardTitle tag="h4">User Information Table</CardTitle>
               </CardHeader>
               <CardBody>
                 <Table responsive>
                   <thead className="text-primary">
                     <tr>
-                      {thead.map((prop, key) => {
-                        if (key === thead.length - 1)
-                          return (
-                            <th key={key} className="text-right">
-                              {prop}
-                            </th>
-                          );
-                        return <th key={key}>{prop}</th>;
-                      })}
+                      <th>ID</th>
+                      <th>User Name</th>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Company</th>
+                      <th>address</th>
+                      <th>email</th>
+                      <th>city</th>
+                      <th>country</th>
+                      <th>postal_code</th>
+                      <th>about_me</th>
+                
                     </tr>
                   </thead>
                   <tbody>
-                    {tbody.map((prop, key) => {
-                      return (
-                        <tr key={key}>
-                          {prop.data.map((prop, key) => {
-                            if (key === thead.length - 1)
-                              return (
-                                <td key={key} className="text-right">
-                                  {prop}
-                                </td>
-                              );
-                            return <td key={key}>{prop}</td>;
-                          })}
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </Table>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col xs={12}>
-            <Card className="card-plain">
-              <CardHeader>
-                <CardTitle tag="h4">Table on Plain Background</CardTitle>
-                <p className="category"> Here is a subtitle for this table</p>
-              </CardHeader>
-              <CardBody>
-                <Table responsive>
-                  <thead className="text-primary">
-                    <tr>
-                      {thead.map((prop, key) => {
-                        if (key === thead.length - 1)
-                          return (
-                            <th key={key} className="text-right">
-                              {prop}
-                            </th>
-                          );
-                        return <th key={key}>{prop}</th>;
-                      })}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {tbody.map((prop, key) => {
-                      return (
-                        <tr key={key}>
-                          {prop.data.map((prop, key) => {
-                            if (key === thead.length - 1)
-                              return (
-                                <td key={key} className="text-right">
-                                  {prop}
-                                </td>
-                              );
-                            return <td key={key}>{prop}</td>;
-                          })}
-                        </tr>
-                      );
-                    })}
+                    {tableData.map((userData) => (
+                      <tr key={userData.id}>
+                        <td>{userData.id}</td>
+                        <td>{userData.user_name}</td>
+                        <td>{userData.first_name}</td>
+                        <td>{userData.last_name}</td>
+                        <td>{userData.address}</td>
+                        <td>{userData.email}</td>
+                        <td>{userData.city}</td>
+                        <td>{userData.country}</td>
+                        <td>{userData.postal_code}</td>
+                        <td>{userData.about_me}</td>
+                      
+                      </tr>
+                    ))}
                   </tbody>
                 </Table>
               </CardBody>
