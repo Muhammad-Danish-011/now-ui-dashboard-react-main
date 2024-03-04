@@ -16,7 +16,7 @@ function RegularTables() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:8081/UserInformation/all");
+        const response = await fetch("http://localhost:8081/UserInformations/all");
         const data = await response.json();
         setTableData(data);
         console.log(data, "====");
