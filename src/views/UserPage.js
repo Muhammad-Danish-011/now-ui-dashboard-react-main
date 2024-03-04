@@ -255,10 +255,25 @@ function UserPage() {
         </Row>
       </div>
       {showPopup && (
-        <div className="popup">
-          <div className="popup-content">
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'rgba(0, 0, 0, 0.5)', /* Transparent black background */
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+          <div style={{
+            backgroundColor: 'white',
+            padding: '20px',
+            borderRadius: '8px',
+            textAlign: 'center',
+          }}>
             <p>Data Saved Successfully!</p>
-            <button  className="btn-neutral btn-icon btn-round" onClick={closePopup}>Close</button>
+            <button className="btn-neutral btn-icon btn-round" onClick={closePopup}>Close</button>
           </div>
         </div>
       )}
