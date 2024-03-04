@@ -86,132 +86,133 @@ function UserPage() {
       <div className="content" style={{ margin: "0 auto"  , display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  height: "100vh", }}>
+  height: "90vh", }}>
         <Row>
           <Col>
-            <Card>
-              <CardHeader style={{display: 'flex' , justifyContent:'center'}}>
+            <Card style={{display: 'flex' , justifyContent:'center' , fontsize: 'large'}}>
+              <CardHeader >
                 <h5 className="title">User Information</h5>
               </CardHeader>
-              <CardBody>
+              <CardBody >
                 <Form >
                   <Row>
                     <Col>
                       <FormGroup>
-                        <label>Company</label>
+                        <label >Company</label>
                         <Input
                           type="text"
                           name="company"
                           value={formData.company}
                           onChange={handleInputChange}
+                          
                         />
                       </FormGroup>
                     </Col>
                     <Col>
                       <FormGroup>
-                        <label>Username</label>
+                        <label  >Username</label>
                         <Input
                           type="text"
                           name="user_name"
                           value={formData.user_name}
                           onChange={handleInputChange}
-                        />
+                                               />
                       </FormGroup>
                     </Col>
                   </Row>
                   <Row>
                     <Col>
                       <FormGroup>
-                        <label>Email</label>
+                        <label >Email</label>
                         <Input
                           type="email"
                           name="email"
                           value={formData.email}
                           onChange={handleInputChange}
-                        />
+                          />
                       </FormGroup>
                     </Col>
                     <Col>
                       <FormGroup>
-                        <label>First Name</label>
+                        <label >First Name</label>
                         <Input
                           type="text"
                           name="first_name"
                           value={formData.first_name}
                           onChange={handleInputChange}
-                        />
+                                            />
                       </FormGroup>
                     </Col>
                   </Row>
                   <Row>
                     <Col>
                       <FormGroup>
-                        <label>Last Name</label>
+                        <label >Last Name</label>
                         <Input
                           type="text"
                           name="last_name"
                           value={formData.last_name}
                           onChange={handleInputChange}
-                        />
+                    />
                       </FormGroup>
                     </Col>
                     <Col>
                       <FormGroup>
-                        <label>Address</label>
+                        <label >Address</label>
                         <Input
                           type="text"
                           name="address"
                           value={formData.address}
                           onChange={handleInputChange}
-                        />
+                                      />
                       </FormGroup>
                     </Col>
                   </Row>
                   <Row>
                     <Col>
                       <FormGroup>
-                        <label>City</label>
+                        <label  >City</label>
                         <Input
                           type="text"
                           name="city"
                           value={formData.city}
                           onChange={handleInputChange}
-                        />
+                                               />
                       </FormGroup>
                     </Col>
                     <Col>
                       <FormGroup>
-                        <label>Country</label>
+                        <label >Country</label>
                         <Input
                           type="text"
                           name="country"
                           value={formData.country}
                           onChange={handleInputChange}
-                        />
+                                          />
                       </FormGroup>
                     </Col>
                   </Row>
                   <Row>
                     <Col>
                       <FormGroup>
-                        <label>Postal Code</label>
+                        <label >Postal Code</label>
                         <Input
                           type="number"
                           name="postal_code"
                           value={formData.postal_code}
                           onChange={handleInputChange}
-                        />
+                                                 />
                       </FormGroup>
                     </Col>
                     <Col>
                       <FormGroup>
-                        <label>About Me</label>
+                        <label  >About Me</label>
                         <Input 
                           type="textarea"
                           name="about_me"
                           value={formData.about_me}
                           onChange={handleInputChange}
-                        />
+                                                 />
                       </FormGroup>
                     </Col>
                   </Row>
