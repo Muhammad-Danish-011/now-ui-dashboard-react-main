@@ -13,7 +13,6 @@ import {
 import PanelHeader from "components/PanelHeader/PanelHeader.js";
 import axios from "axios";
 
-
 function UserPage() {
   const [formData, setFormData] = useState({
     company: "",
@@ -52,7 +51,6 @@ function UserPage() {
   const [saveSuccess, setSaveSuccess] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
 
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -69,7 +67,6 @@ function UserPage() {
       .post("http://localhost:8081/UserInformations/add", formData)
       .then((response) => {
         console.log(response.data);
-        
         setSaveSuccess(true);
         setShowPopup(true);
       })
@@ -78,46 +75,42 @@ function UserPage() {
         setSaveSuccess(true);
       });
 
-    
     setTimeout(() => {
       setSaveSuccess(true);
     }, 1000);
   };
 
-
-
   return (
     <>
       <PanelHeader size="sm" />
-      <div className="content">
+      <div className="content" style={{ margin: "0 auto"  , display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "100vh", }}>
         <Row>
-          <Col md="8">
-            <Card >
-              <CardHeader>
-                <h5 className="title">User Information </h5>
+          <Col>
+            <Card>
+              <CardHeader style={{display: 'flex' , justifyContent:'center'}}>
+                <h5 className="title">User Information</h5>
               </CardHeader>
               <CardBody>
-                <Form>
+                <Form >
                   <Row>
-                    <Col className="pr-1" md="5">
+                    <Col>
                       <FormGroup>
                         <label>Company</label>
                         <Input
-                          cols="80"
-                          placeholder="Company"
-                          name="company"
                           type="text"
+                          name="company"
                           value={formData.company}
                           onChange={handleInputChange}
                         />
                       </FormGroup>
                     </Col>
-                    <Col className="px-1" md="3">
+                    <Col>
                       <FormGroup>
-                        <label>UserName</label>
+                        <label>Username</label>
                         <Input
-                          cols="80"
-                          placeholder="Username"
                           type="text"
                           name="user_name"
                           value={formData.user_name}
@@ -125,12 +118,12 @@ function UserPage() {
                         />
                       </FormGroup>
                     </Col>
-                    <Col className="pl-1" md="4">
+                  </Row>
+                  <Row>
+                    <Col>
                       <FormGroup>
-                        <label htmlFor="exampleInputEmail1">Email</label>
+                        <label>Email</label>
                         <Input
-                          cols="80"
-                          placeholder="Email"
                           type="email"
                           name="email"
                           value={formData.email}
@@ -138,14 +131,10 @@ function UserPage() {
                         />
                       </FormGroup>
                     </Col>
-                  </Row>
-                  <Row>
-                    <Col className="pr-1" md="6">
+                    <Col>
                       <FormGroup>
-                        <label>FirstName</label>
+                        <label>First Name</label>
                         <Input
-                          cols="80"
-                          placeholder="First name "
                           type="text"
                           name="first_name"
                           value={formData.first_name}
@@ -153,12 +142,12 @@ function UserPage() {
                         />
                       </FormGroup>
                     </Col>
-                    <Col className="pl-1" md="6">
+                  </Row>
+                  <Row>
+                    <Col>
                       <FormGroup>
-                        <label>LastName</label>
+                        <label>Last Name</label>
                         <Input
-                          cols="80"
-                          placeholder="Last Name"
                           type="text"
                           name="last_name"
                           value={formData.last_name}
@@ -166,14 +155,10 @@ function UserPage() {
                         />
                       </FormGroup>
                     </Col>
-                  </Row>
-                  <Row>
-                    <Col md="12">
+                    <Col>
                       <FormGroup>
                         <label>Address</label>
                         <Input
-                          cols="80"
-                          placeholder="Home Address"
                           type="text"
                           name="address"
                           value={formData.address}
@@ -183,12 +168,10 @@ function UserPage() {
                     </Col>
                   </Row>
                   <Row>
-                    <Col className="pr-1" md="4">
+                    <Col>
                       <FormGroup>
                         <label>City</label>
                         <Input
-                          cols="80"
-                          placeholder="City"
                           type="text"
                           name="city"
                           value={formData.city}
@@ -196,12 +179,10 @@ function UserPage() {
                         />
                       </FormGroup>
                     </Col>
-                    <Col className="px-1" md="4">
+                    <Col>
                       <FormGroup>
                         <label>Country</label>
                         <Input
-                          cols="80"
-                          placeholder="Country"
                           type="text"
                           name="country"
                           value={formData.country}
@@ -209,12 +190,12 @@ function UserPage() {
                         />
                       </FormGroup>
                     </Col>
-                    <Col className="pl-1" md="4">
+                  </Row>
+                  <Row>
+                    <Col>
                       <FormGroup>
-                        <label>PostalCode</label>
+                        <label>Postal Code</label>
                         <Input
-                          cols="80"
-                          placeholder="ZIP Code"
                           type="number"
                           name="postal_code"
                           value={formData.postal_code}
@@ -222,32 +203,45 @@ function UserPage() {
                         />
                       </FormGroup>
                     </Col>
-                  </Row>
-
-                  <Row>
-                    <Col md="12">
+                    <Col>
                       <FormGroup>
                         <label>About Me</label>
-                        <Input
-                          cols="80"
-                          placeholder="Here can be your description"
-                          rows="4"
+                        <Input 
                           type="textarea"
                           name="about_me"
                           value={formData.about_me}
                           onChange={handleInputChange}
                         />
-                        <Button
-                          className="btn-neutral btn-icon btn-round"
-                          onClick={()=>{
-                            handleSaveClick();
-                          }}
-                        >
-                          Save
-                        </Button>
                       </FormGroup>
                     </Col>
                   </Row>
+                  <Row  style={{
+                  // width: 'full' ,
+                  display: "flex",
+                  justifyContent: "center",
+                  
+                }}>
+                  <Button
+                 style={{
+                  // width:"full",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor: "#575758",
+                  color: "white",
+                  border: '2px solid black',
+                  borderRadius :'10%',
+                  padding: "0px 50px"
+                  
+              
+                }}
+                    className="btn-neutral btn-icon btn-round"
+                    onClick={handleSaveClick}
+                  >
+                    Save
+                  </Button>
+                  </Row>
+                 
                 </Form>
               </CardBody>
             </Card>
@@ -255,29 +249,38 @@ function UserPage() {
         </Row>
       </div>
       {showPopup && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          backgroundColor: 'rgba(0, 0, 0, 0.5)', /* Transparent black background */
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-          <div style={{
-            backgroundColor: 'white',
-            padding: '20px',
-            borderRadius: '8px',
-            textAlign: 'center',
-          }}>
+        <div
+          className="popup"
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "white",
+              padding: "20px",
+              borderRadius: "8px",
+              textAlign: "center",
+            }}
+          >
             <p>Data Saved Successfully!</p>
-            <button className="btn-neutral btn-icon btn-round" onClick={closePopup}>Close</button>
+            <button
+              className="btn-neutral btn-icon btn-round"
+              onClick={closePopup}
+            >
+              Close
+            </button>
           </div>
         </div>
       )}
-      
     </>
   );
 }
