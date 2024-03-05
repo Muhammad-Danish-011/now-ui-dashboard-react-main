@@ -86,7 +86,7 @@ function UserPage() {
       <div className="content" style={{ margin: "0 auto"  , display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  height: "90vh", }}>
+  height: "10vh", }}>
         <Row>
           <Col>
             <Card style={{display: 'flex' , justifyContent:'center' , fontsize: 'large'}}>
