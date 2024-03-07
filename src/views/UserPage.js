@@ -102,6 +102,8 @@ function UserPage() {
                         <Input
                           type="text"
                           name="company"
+                          placeholder="Company"
+
                           value={formData.company}
                           onChange={handleInputChange}
                           
@@ -114,6 +116,8 @@ function UserPage() {
                         <Input
                           type="text"
                           name="user_name"
+                          placeholder="Username"
+
                           value={formData.user_name}
                           onChange={handleInputChange}
                                                />
@@ -127,6 +131,7 @@ function UserPage() {
                         <Input
                           type="email"
                           name="email"
+                          placeholder="Email"
                           value={formData.email}
                           onChange={handleInputChange}
                           />
@@ -138,6 +143,8 @@ function UserPage() {
                         <Input
                           type="text"
                           name="first_name"
+                          placeholder="First Name"
+
                           value={formData.first_name}
                           onChange={handleInputChange}
                                             />
@@ -151,6 +158,8 @@ function UserPage() {
                         <Input
                           type="text"
                           name="last_name"
+                          placeholder="Last Name"
+
                           value={formData.last_name}
                           onChange={handleInputChange}
                     />
@@ -162,6 +171,8 @@ function UserPage() {
                         <Input
                           type="text"
                           name="address"
+                          placeholder="address"
+
                           value={formData.address}
                           onChange={handleInputChange}
                                       />
@@ -175,6 +186,8 @@ function UserPage() {
                         <Input
                           type="text"
                           name="city"
+                          placeholder="city"
+
                           value={formData.city}
                           onChange={handleInputChange}
                                                />
@@ -186,6 +199,7 @@ function UserPage() {
                         <Input
                           type="text"
                           name="country"
+                          placeholder="country"
                           value={formData.country}
                           onChange={handleInputChange}
                                           />
@@ -199,6 +213,7 @@ function UserPage() {
                         <Input
                           type="number"
                           name="postal_code"
+                          placeholder="Postal Code"
                           value={formData.postal_code}
                           onChange={handleInputChange}
                                                  />
@@ -210,6 +225,7 @@ function UserPage() {
                         <Input 
                           type="textarea"
                           name="about_me"
+                          placeholder="About Me"
                           value={formData.about_me}
                           onChange={handleInputChange}
                                                  />
